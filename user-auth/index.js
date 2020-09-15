@@ -9,11 +9,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const corsOptions = {
-    origin: 'https://localost:3000/register',
+    origin: '*',
   optionsSuccessStatus: 200
 }
 
 app.use(cors());
+
+
 
 require('dotenv').config();
 
