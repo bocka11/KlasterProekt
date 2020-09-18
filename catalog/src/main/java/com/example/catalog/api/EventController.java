@@ -38,4 +38,8 @@ public class EventController {
 	public Optional<Event> getEvent(@PathVariable String id) {
 		return dao.findById(id);
 	}
+	@GetMapping("/api/getall")
+	public List<Event> getAllEvents(){
+		return dao.findAll();
+	}
 }
