@@ -1,0 +1,10 @@
+.container{
+   display:grid;
+   grid-template-columns: auto;
+    grid-template-rows:auto auto ;
+
+}
+
+.container:nth-child(odd){
+    background-color: rgb(163, 198, 212);
+}

@@ -16,7 +16,7 @@ router.post('/naracka',async (req,res)=>{
     const channel = await connection.createChannel();
     const result = await channel.assertQueue("queue");
     await channel.sendToQueue("queue",Buffer.from(JSON.stringify(res.body.data)));
-    res.send("Isprateno do RabbitMQ");
+    res.send({"msg":"Vasata naracka se procesira"});
 } catch (error) {
     console.log(error);
 }
