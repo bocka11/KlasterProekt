@@ -1,3 +1,3 @@
 # Arhitektura
 
-![Alt text](arch.drawio?raw=true "Title")
+![Alt text](arch.jpg?raw=true "Title")
