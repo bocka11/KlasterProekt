@@ -5,14 +5,14 @@ import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import axios from 'axios';
-
+import {Redirect} from 'react-router-dom';
 import "./EventsCard.css";
 
 const EventsUrl = "http://localhost:8080/api/getall"
 
 
 const description = "proba";
-const EventCardGroup = ()=>{
+const EventCardGroup = (props)=>{
     
     const [eventsList,setEventsList] = useState([]);
     useEffect(async ()=>{
@@ -22,9 +22,15 @@ const EventCardGroup = ()=>{
     
     },[]);
 
+    const [event,setEvent]=useState('');
+    const [mesta,setMesta]=useState(0);
+    const [red,setRed] = useState(false);
+     
+
     return (
         <div className="content">
-
+            
+            {red?<Redirect to={`/orderspage?user=${props.user}&token=${props.token}&event=${event}`}/>:null}
         
             {eventsList.map((event)=>{
                 return(
@@ -47,7 +53,13 @@ const EventCardGroup = ()=>{
                  </Typography>
                 </CardContent>
                 <CardActions>
-                <Button size="small">Kupi</Button>
+                <Button onClick={()=>{
+                    setEvent(event.name);
+                    setMesta(event.seats);
+                    if(props.user&props.token)
+                    setRed(true);
+
+                }} size="small">Kupi</Button>
                 </CardActions>
 
             </Card>)

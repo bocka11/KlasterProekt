@@ -21,6 +21,7 @@ const App = ()=>{
             <Route path='/register' exact component={RegisterPage}></Route>
             <Route path='/events' exact component={EventsPage}></Route>
             <GuardedRoute path='/orderpage' component={OrderPage} auth/>
+            
         </Router>
     );
 

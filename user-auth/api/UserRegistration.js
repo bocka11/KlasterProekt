@@ -42,11 +42,11 @@ router.post('/login',async(req,res)=>{
         let hash = crypto.pbkdf2Sync(password, records.salt,  
             1000, 64, `sha512`).toString(`hex`);
         const token = jwt.sign({username},'tajna');
-        const msg = {"message":"You are logged in",token};
-        hash===records.password?res.send(msg):res.send("Password does not match");
+        const msg = {msg:"You are logged in",token,code:1};
+        hash===records.password?res.send(msg):res.send({msg:"Password does not match",code:2});
 
         
-    }else{res.send("User Not Found")};
+    }else{res.send({msg:"User not found",code:0})};
 })
 
 module.exports = router;
