@@ -27,7 +27,7 @@ const Content = (props)=>{
                 setToken(response.data.token);
                 console.log("token",token);
             }
-                console.log(response.data)}).catch(err=>{ console.log("Poraka od login") ;console.log(err)});
+                }).catch(err=>{ console.log("Poraka od login") ;console.log(err)});
     },[data]);
     useEffect(()=>{
         props.setAuth(auth);
@@ -50,7 +50,7 @@ const Content = (props)=>{
             </div>
             
              <button className="buttonn mt-20" type="submit ">Sign In</button>
-            
+            -4;-6
              </div>
 
              {pass?<label>Password doesnt match</label>:null}
@@ -59,3 +59,4 @@ const Content = (props)=>{
             </div>
 }
 export default Content;
+ 
