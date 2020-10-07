@@ -5,7 +5,7 @@ import {Route,Redirect} from 'react-router-dom';
 const GuardedRoute = (props)=>(
 
     <Route path={props.path} render={(props)=>(
-        props.auth===false?<props.component {...props}/>:<Redirect to="/"/>
+        props.auth===true?<props.component />:<Redirect to="/"/>
     )}/>
 
 )

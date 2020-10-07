@@ -20,7 +20,7 @@ const App = ()=>{
             <Route path='/' exact render={()=>(<LoginPage setAuth={(a)=>{setAuth(a)}}/>)} ></Route>
             <Route path='/register' exact component={RegisterPage}></Route>
             <Route path='/events' exact component={EventsPage}></Route>
-            <GuardedRoute path='/orderpage' component={OrderPage} auth/>
+            <Route path='/orderpage' component={OrderPage}></Route>
             
         </Router>
     );

@@ -18,7 +18,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "rsuite": "^4.8.1",
-    "semantic-ui-react": "^1.2.1"
+    "semantic-ui-react": "^1.2.1",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -11,14 +11,19 @@ import "./EventsCard.css";
 const EventsUrl = "http://localhost:8080/api/getall"
 
 
+
+
 const description = "proba";
 const EventCardGroup = (props)=>{
     
     const [eventsList,setEventsList] = useState([]);
-    useEffect(async ()=>{
+    useEffect(()=>{
 
-      const response = await axios.get(EventsUrl);
-      setEventsList(response.data);
+        async function fetchData(){
+            const response = await axios.get(EventsUrl);
+            setEventsList(response.data);
+        }
+      fetchData();
     
     },[]);
 
@@ -30,7 +35,7 @@ const EventCardGroup = (props)=>{
     return (
         <div className="content">
             
-            {red?<Redirect to={`/orderspage?user=${props.user}&token=${props.token}&event=${event}`}/>:null}
+            {red?<Redirect to={`/orderpage?user=${props.user}&token=${props.token}&event=${event}&seats=${mesta}`}/>:null}
         
             {eventsList.map((event)=>{
                 return(
@@ -55,8 +60,11 @@ const EventCardGroup = (props)=>{
                 <CardActions>
                 <Button onClick={()=>{
                     setEvent(event.name);
+                    console.log(event.name);
                     setMesta(event.seats);
-                    if(props.user&props.token)
+                    console.log(props.user,props.token);
+                    
+                    if(props.user!==""&props.token!=="")
                     setRed(true);
 
                 }} size="small">Kupi</Button>

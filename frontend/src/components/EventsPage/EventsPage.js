@@ -22,9 +22,10 @@ const EventsPage = ({location})=>{
     const {user,token} = queryString.parse(location.search);
     setUser(user);
     setToken(token);
-    console.log(user,token);
+    console.log("REnderiram",user,token);
+    
 
-   },[location.search]);
+   },[]);
 
     return <div className="container">
                 <NavBar/>

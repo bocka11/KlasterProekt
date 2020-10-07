@@ -17,21 +17,27 @@ const Content = (props)=>{
     useEffect(()=>{
         console.log(data);
         axios.post('http://localhost:3030/api/login',data).then(
-            response => {
+            async response => {
                 console.log(response.data);
                 if(response.data.code == "2"){
                     setPass(true);
                 }
                 if(response.data.code==1){
-                setAuth(true);
+                console.log(response.data.code);
+                console.log(auth);
+                
+                console.log(response.data.token);
                 setToken(response.data.token);
+                setAuth(true);
                 console.log("token",token);
+                console.log(auth);
             }
                 }).catch(err=>{ console.log("Poraka od login") ;console.log(err)});
     },[data]);
     useEffect(()=>{
         props.setAuth(auth);
         console.log("Od content: ",auth);},[auth]);
+    useEffect(()=>{console.log("Efeect token",token)},[token]);
     return <div className="outerContainer">
             {console.log("Vo return:",auth)}
             {auth?<Redirect to={`/events?user=${username}&token=${token}`}/>:null}
@@ -50,7 +56,7 @@ const Content = (props)=>{
             </div>
             
              <button className="buttonn mt-20" type="submit ">Sign In</button>
-            -4;-6
+            
              </div>
 
              {pass?<label>Password doesnt match</label>:null}
