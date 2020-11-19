@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naracka-deployment
+  labels:
+    app: naracka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: naracka
+  template:
+    metadata:
+      labels:
+        app: naracka
+    spec:
+      containers:
+        - name: naracka
+          image: klasterproekt_naracka
+          ports:
+           - containerPort: 3003
+          imagePullPolicy: Never

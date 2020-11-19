@@ -6,6 +6,9 @@ import './Content.css';
 
 import axios from 'axios';
 
+const login_url = process.env.REACT_APP_LOGIN_URL || 'http://localhost:3030/api/login';
+
+
 const Content = (props)=>{
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
@@ -16,7 +19,7 @@ const Content = (props)=>{
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     useEffect(()=>{
         console.log(data);
-        axios.post('http://localhost:3030/api/login',data).then(
+        axios.post(login_url,data).then(
             async response => {
                 console.log(response.data);
                 if(response.data.code == "2"){

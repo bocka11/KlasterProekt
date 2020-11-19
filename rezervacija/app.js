@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3300;
 const bodyparser = require('body-parser');
+const cors = require('cors');
 
 
 const routes = require("./api/routes");
@@ -10,6 +11,8 @@ console.log(typeof routes);
 
 require('dotenv').config();
 
+
+app.use(cors());
 app.get('/',(req,res)=>{
     res.send("Proba");
 });

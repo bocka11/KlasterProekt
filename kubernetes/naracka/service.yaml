@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: naracka-service
+spec:
+  selector:
+    app: naracka
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 3003
+  
+  

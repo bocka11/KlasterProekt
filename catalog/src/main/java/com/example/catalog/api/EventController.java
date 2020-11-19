@@ -47,12 +47,13 @@ public class EventController {
 		return dao.findAll();
 	}
 	
-	@PutMapping("/api/update/{id}")
+	@PutMapping("/api/update/{name}/{kolicina}")
 	@CrossOrigin(origins="*")
-	public Event updateEvent(@PathVariable String id){
-		Optional<Event> entry = dao.findById(id);
-		Event event = entry.get();
-		event.setSeats(event.getSeats()-1);
+	public Event updateEvent(@PathVariable("name") String name,@PathVariable("kolicina") int kolicina){
+		
+		List<Event> entry = (List<Event>) dao.findByName(name);
+		Event event = entry.get(0);
+		event.setSeats(event.getSeats()-kolicina);
 		dao.save(event);
 		return event;
 		

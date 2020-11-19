@@ -13,14 +13,16 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 
 require('dotenv').config();
 
+const db_url = process.env.DB_URL || 'mongodb://localhost:27017/klaster'
+
 try{
-    mongoose.connect('mongodb://localhost:27017/klaster',{useNewUrlParser: true});
+    mongoose.connect(db_url,{useNewUrlParser: true});
     const db = mongoose.connection;
     db.on('error',()=>console.log("Error while connecting to db"));
     db.once('open',()=>{

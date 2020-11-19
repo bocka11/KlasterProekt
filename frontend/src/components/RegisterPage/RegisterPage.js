@@ -26,6 +26,8 @@ const logFormat = log =>({
 remote.apply(log, { format: logFormat, url: '/logger' });
 log.enableAll();
 
+const register_url = process.env.REACT_APP_REG_URL || 'http://localhost:3030/api/signup';
+
 
 const RegisterPage = ()=>{
     const [firstname,setFirstname] = useState('');
@@ -48,7 +50,7 @@ const RegisterPage = ()=>{
     useEffect(()=>{
         console.log(data);
 
-         axios.post('http://localhost:3030/api/signup',data).then(response => console.log(response.data)).catch(err => console.log(err));
+         axios.post(register_url,data).then(response => console.log(response.data)).catch(err => console.log(err));
     },[data])
 
     return <div className="container">
