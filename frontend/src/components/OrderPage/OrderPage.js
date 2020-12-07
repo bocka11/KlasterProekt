@@ -6,7 +6,7 @@ import axios from 'axios';
 import "./OrderPage.css"
 import { findRenderedComponentWithType } from 'react-dom/test-utils';
 
-const  url = "http://localhost:3300/api/naracka";
+const  url = process.env.REACT_APP_REZERVACIJA_URL || "http://localhost:3300/api/naracka";
 const OrderPage = ({location})=>{
     const [user,setUser] = useState("");
     const [token,setToken] = useState("");

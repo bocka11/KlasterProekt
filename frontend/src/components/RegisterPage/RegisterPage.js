@@ -26,7 +26,7 @@ const logFormat = log =>({
 remote.apply(log, { format: logFormat, url: '/logger' });
 log.enableAll();
 
-const register_url = process.env.REACT_APP_REG_URL || 'http://localhost:3030/api/signup';
+const register_url = window.REACT_APP_REG_URL || process.env.REACT_APP_REG_URL || 'http://localhost:3030/api/signup';
 
 
 const RegisterPage = ()=>{

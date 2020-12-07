@@ -20,3 +20,6 @@ spec:
           ports:
            - containerPort: 3001
           imagePullPolicy: Never
+          env:
+          - name: DB_URL
+            value: "mongodb://10.99.145.154:27017/klaster"

@@ -18,5 +18,15 @@ spec:
         - name: frontend
           image: klasterproekt_frontend
           ports:
-           - containerPort: 3000
+           - containerPort: 80
           imagePullPolicy: Never
+          env:
+          - name: DB_URL
+            value: "mongodb://mongodb:27017/klaster"
+          - name: LOGIN_URL
+            value: "http://user-auth:3001/api/login"
+          - name: REG_URL
+            value: "http://user-auth:3001/api/signup"
+          - name: EVENTS_URL
+            value: "http://10.107.158.239:3001/api/signup"
+          

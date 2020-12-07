@@ -8,7 +8,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import "./EventsCard.css";
 
-const EventsUrl = process.env.REACT_APP_EVENTS_URL || "http://localhost:8080/api/getall"
+const EventsUrl = window.REACT_APP_EVENTS_URL || process.env.REACT_APP_EVENTS_URL || "http://localhost:8080/api/getall"
 
 
 

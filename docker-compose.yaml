@@ -8,13 +8,9 @@ services:
     build: ./frontend
     stdin_open: true 
     tty: true
-    environment:
-      REACT_APP_DB_URL: "mongodb://mongodb:27017/klaster"
-      REACT_APP_LOGIN_URL: "http://localhost:3001/api/login"
-      REACT_APP_REG_URL: "http://localhost:3001/api/signup"
-      REACT_APP_EVENTS_URL: "http://localhost:3002/api/getall"
+    
     ports:
-      - "3000:3000"
+      - "81:80"
     depends_on:
       - user-auth
       - catalog
