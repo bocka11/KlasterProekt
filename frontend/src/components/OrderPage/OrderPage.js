@@ -2,9 +2,12 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import {useState,useEffect} from 'react';
 import queryString from 'query-string';
+import {Link,Redirect} from 'react-router-dom';
 import axios from 'axios';
 import "./OrderPage.css"
 import { findRenderedComponentWithType } from 'react-dom/test-utils';
+
+var ready;
 
 const  url = process.env.REACT_APP_REZERVACIJA_URL || "http://localhost:3300/api/naracka";
 const OrderPage = ({location})=>{
@@ -45,8 +48,10 @@ const OrderPage = ({location})=>{
                 <input type="text" placeholder="Expirion date" onChange={(event)=>{setEdate(event.target.value)}}></input>
                 <button onClick={(e)=>{
                     setData({user,ime,karti,ccn,cvv,edate,event});
+                    ready = true;
 
                 }}>KUPI</button>
+                {ready?(alert("Vasata naracka se processira"),<Redirect to={`/events?user=${user}&token=${token}`}/>):null}
             </div>
             </div>
 }

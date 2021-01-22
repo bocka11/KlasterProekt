@@ -18,5 +18,5 @@ spec:
         - name: catalog
           image: klasterproekt_catalog
           ports:
-           - containerPort: 3002
+           - containerPort: 8080
           imagePullPolicy: Never

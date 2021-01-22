@@ -28,5 +28,5 @@ spec:
           - name: REG_URL
             value: "http://user-auth:3001/api/signup"
           - name: EVENTS_URL
-            value: "http://10.107.158.239:3001/api/signup"
+            value: "http://catalog-service:3002"
           

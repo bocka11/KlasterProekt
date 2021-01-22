@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: user-auth-deployment
   labels:
-    app: user-auth
+    app: rezervacija-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: user-auth
+      app: reservacija
   template:
     metadata:
       labels:
-        app: user-auth
+        app: rezervacija
     spec:
       containers:
         - name: user-auth
